@@ -7,43 +7,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
-            height: 100%; /* Ensure html and body take full height */
+            height: 100%; /* HTMLとbodyがビューポートの高さを最大限に占めるように設定 */
             margin: 0;
             padding: 0;
+            overflow-x: hidden; /* 横方向のスクロールバーを非表示にする */
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ensure body is at least viewport height */
+            background-color: #f0f4f8; /* 背景色 */
+            display: flex; /* デスクトップでの中央寄せに利用 */
+            justify-content: center; /* デスクトップでの中央寄せに利用 */
+            align-items: center; /* デスクトップでの中央寄せに利用 */
+            min-height: 100vh; /* bodyがビューポートの高さを少なくとも満たすように */
             color: #1a202c;
-            /* Removed overflow: hidden; from body to allow full page scrolling if necessary */
         }
         .app-container {
             background-color: #ffffff;
-            border-radius: 36px; /* Rounded corners for phone-like shape */
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 36px; /* デスクトップでのスマホ風の角丸 */
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15); /* デスクトップでの影 */
             width: 100%;
-            max-width: 500px; /* Increased max-width for desktop view */
-            min-height: 100vh; /* Ensure it takes at least full viewport height on small screens */
-            max-height: 900px; /* Increased max-height for desktop preview */
+            max-width: 600px; /* デスクトップでの最大幅 */
+            height: 100%; /* 親要素(body)の高さに合わせる */
+            max-height: 900px; /* デスクトップでの最大高さ */
             display: flex;
             flex-direction: column;
-            overflow-y: auto; /* Allow scrolling for the entire app container */
-            box-sizing: border-box; /* Include padding/border in element's total width/height */
+            overflow-y: auto; /* コンテナ内で縦方向のスクロールを許可 */
+            box-sizing: border-box; /* パディングとボーダーを幅と高さに含める */
         }
 
-        /* Top Header */
+        /* ヘッダー */
         .header {
             padding: 20px 25px 15px;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center the title */
+            justify-content: center; /* タイトルを中央に配置 */
             border-bottom: 1px solid #f0f4f8;
             position: relative;
-            flex-shrink: 0; /* Prevent header from shrinking */
+            flex-shrink: 0; /* ヘッダーが縮まないようにする */
         }
         .header .title {
             font-size: 1.1rem;
@@ -52,15 +52,14 @@
             text-align: center;
         }
 
-        /* Main Content Area */
+        /* メインコンテンツエリア */
         .main-content {
-            flex-grow: 1; /* Allow main content to take available space */
-            padding: 25px;
+            flex-grow: 1; /* 利用可能なスペースを占める */
+            padding: 30px; /* パディングを増やす */
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            /* Removed overflow-y: auto; here to avoid nested scrolling. app-container will handle it. */
+            gap: 25px; /* 要素間の間隔を増やす */
         }
         .profile-section {
             display: flex;
@@ -69,7 +68,7 @@
             width: 100%;
             justify-content: flex-start;
             margin-bottom: 10px;
-            flex-shrink: 0; /* Prevent from shrinking */
+            flex-shrink: 0;
         }
         .profile-icon {
             width: 32px;
@@ -95,10 +94,10 @@
             flex-shrink: 0;
         }
 
-        /* Sound Wave Visualizer */
+        /* サウンドウェーブビジュアライザー */
         .sound-wave-visualizer {
-            width: 150px;
-            height: 150px;
+            width: 180px; /* サイズを拡大 */
+            height: 180px;
             background-color: #f0f4f8;
             border-radius: 50%;
             display: flex;
@@ -108,16 +107,16 @@
             margin-bottom: 30px;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
             position: relative;
-            flex-shrink: 0; /* Prevent from shrinking */
+            flex-shrink: 0;
         }
         .sound-wave-visualizer svg {
-            color: #a0aec0; /* Grey color for inactive wave */
-            width: 80px;
-            height: 80px;
+            color: #a0aec0; /* 非アクティブ時のグレー */
+            width: 100px; /* アイコンサイズを拡大 */
+            height: 100px;
             transition: color 0.3s ease;
         }
         .sound-wave-visualizer.active svg {
-            color: #6366f1; /* Blue for active wave */
+            color: #6366f1; /* アクティブ時の青 */
             animation: wave-pulse 1.5s infinite ease-out;
         }
         @keyframes wave-pulse {
@@ -125,7 +124,7 @@
             50% { transform: scale(1.0); opacity: 1; }
         }
 
-        /* Stop Button (Large Red) */
+        /* 停止ボタン (大型の赤) */
         .stop-button-large {
             background-color: #ef4444;
             color: white;
@@ -137,11 +136,11 @@
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
             transition: all 0.3s ease;
-            width: 80%; /* Adjusted width */
-            max-width: 250px;
+            width: 90%; /* 幅を広げる */
+            max-width: 300px; /* 最大幅を拡大 */
             margin-bottom: 20px;
-            display: none; /* Hidden by default */
-            flex-shrink: 0; /* Prevent from shrinking */
+            display: none; /* デフォルトで非表示 */
+            flex-shrink: 0;
         }
         .stop-button-large:hover {
             background-color: #dc2626;
@@ -156,10 +155,10 @@
             transform: none;
         }
 
-        /* Textarea */
+        /* テキストエリア */
         textarea {
             width: 100%;
-            min-height: 120px; /* Adjusted min-height to provide more space */
+            min-height: 150px; /* 最小高さを調整 */
             padding: 15px;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
@@ -169,22 +168,22 @@
             resize: vertical;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
             transition: border-color 0.3s ease;
-            flex-grow: 1; /* Allow textarea to grow and shrink within main-content */
+            flex-grow: 1; /* メインコンテンツ内で拡大・縮小可能にする */
         }
         textarea:focus {
             outline: none;
             border-color: #6366f1;
         }
 
-        /* Action Buttons (Record, Save) */
+        /* アクションボタン (録音, 保存) */
         .action-buttons {
             display: flex;
-            justify-content: center; /* Center buttons horizontally */
+            justify-content: center; /* ボタンを水平中央に配置 */
             align-items: center;
             width: 100%;
             margin-top: 20px;
             gap: 15px;
-            flex-shrink: 0; /* Prevent from shrinking */
+            flex-shrink: 0;
         }
         .action-btn {
             background-color: #ffffff;
@@ -201,8 +200,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            flex: 1; /* Distribute space evenly */
-            max-width: 150px; /* Limit button width */
+            flex: 1; /* スペースを均等に分配 */
+            max-width: 150px; /* ボタンの最大幅を制限 */
         }
         .action-btn:hover {
             background-color: #f0f4f8;
@@ -222,18 +221,18 @@
             color: #4a5568;
         }
 
-        /* Bottom Navigation Bar */
+        /* 下部ナビゲーションバー */
         .bottom-nav {
             background-color: #ffffff;
             border-top: 1px solid #f0f4f8;
             padding: 10px 0;
             display: flex;
-            justify-content: center; /* Center the single nav item */
+            justify-content: center; /* 単一のナビアイテムを中央に配置 */
             align-items: center;
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
-            border-bottom-left-radius: 36px; /* Match container border radius */
+            border-bottom-left-radius: 36px; /* コンテナの角丸に合わせる */
             border-bottom-right-radius: 36px;
-            flex-shrink: 0; /* Prevent bottom nav from shrinking */
+            flex-shrink: 0;
         }
         .nav-item {
             display: flex;
@@ -241,13 +240,13 @@
             align-items: center;
             gap: 3px;
             cursor: pointer;
-            color: #a0aec0; /* Inactive color */
+            color: #a0aec0; /* 非アクティブ時の色 */
             font-size: 0.75rem;
             font-weight: 500;
             transition: color 0.2s ease;
         }
         .nav-item.active {
-            color: #ef4444; /* Active color (red) */
+            color: #ef4444; /* アクティブ時の色 (赤) */
         }
         .nav-item svg {
             width: 24px;
@@ -258,7 +257,7 @@
             color: #ef4444;
         }
 
-        /* Status message */
+        /* ステータスメッセージ */
         .status-message {
             font-size: 0.85rem;
             padding: 10px 15px;
@@ -267,7 +266,7 @@
             font-weight: 500;
             width: 100%;
             text-align: center;
-            flex-shrink: 0; /* Prevent from shrinking */
+            flex-shrink: 0;
         }
         .status-message.info {
             background-color: #e0f2fe;
@@ -282,41 +281,51 @@
             color: #16a34a;
         }
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 480px) { /* Adjust breakpoint for typical phone widths */
+        /* スマートフォンなどの小さな画面向けのレスポンシブ調整 */
+        @media (max-width: 480px) { /* 一般的なスマートフォンの画面幅に合わせる */
+            body {
+                display: block; /* Flexboxの中央寄せを解除し、ブロック表示に */
+                padding: 0; /* bodyのパディングをなくす */
+                margin: 0; /* bodyのマージンをなくす */
+                overflow-y: auto; /* 必要に応じてbody全体でスクロールを許可 */
+            }
             .app-container {
-                border-radius: 0; /* No border radius on small screens to fit edge-to-edge */
-                min-height: 100vh; /* Ensure full height on small screens */
-                max-height: unset; /* Remove max-height constraint for smaller screens */
+                border-radius: 0; /* 画面端まで広がるように角丸をなくす */
+                max-width: unset; /* 最大幅の制限を解除 */
+                min-height: 100vh; /* 画面の高さを満たすように */
+                height: auto; /* コンテンツに合わせて高さを自動調整 */
+                max-height: unset; /* 最大高さの制限を解除 */
+                box-shadow: none; /* 影をなくす */
+                width: 100vw; /* ビューポートの幅いっぱいに広げる */
             }
             .header {
-                padding: 15px 20px 10px; /* Reduce padding */
+                padding: 15px 20px 10px; /* パディングを削減 */
             }
             .header .title {
-                font-size: 1rem; /* Smaller title font */
+                font-size: 1rem; /* タイトルフォントを小さく */
             }
             .main-content {
-                padding: 20px; /* Reduce padding */
-                gap: 15px; /* Reduce gap between elements */
+                padding: 20px; /* パディングを削減 */
+                gap: 15px; /* 要素間の間隔を削減 */
             }
             .sound-wave-visualizer {
-                width: 120px; /* Smaller visualizer */
-                height: 120px;
+                width: 140px; /* モバイル向けに少し小さく */
+                height: 140px;
                 margin-top: 15px;
                 margin-bottom: 20px;
             }
             .sound-wave-visualizer svg {
-                width: 70px; /* Smaller wave icon */
-                height: 70px;
+                width: 80px; /* モバイル向けに少し小さく */
+                height: 80px;
             }
             .stop-button-large {
                 padding: 15px 30px;
                 font-size: 1.1rem;
-                width: 90%; /* Wider on small screens */
-                max-width: unset; /* Remove max-width constraint */
+                width: 90%; /* 小さな画面で幅を広げる */
+                max-width: unset;
             }
             textarea {
-                min-height: 80px; /* Adjusted min-height for mobile */
+                min-height: 100px; /* モバイル向けに最小高さを調整 */
                 padding: 12px;
                 font-size: 0.95rem;
             }
@@ -331,11 +340,11 @@
             }
             .action-btn svg {
                 width: 18px;
-                height: 18px; /* Corrected height */
+                height: 18px;
             }
             .bottom-nav {
-                padding: 8px 0; /* Smaller padding */
-                border-bottom-left-radius: 0; /* No border radius on very small screens */
+                padding: 8px 0; /* パディングを削減 */
+                border-bottom-left-radius: 0; /* 角丸をなくす */
                 border-bottom-right-radius: 0;
             }
             .nav-item {
@@ -343,7 +352,7 @@
             }
             .nav-item svg {
                 width: 20px;
-                height: 20px; /* Corrected height */
+                height: 20px;
             }
             .status-message {
                 font-size: 0.8rem;
