@@ -159,7 +159,7 @@
         /* Textarea */
         textarea {
             width: 100%;
-            min-height: 100px; /* Reduced min-height */
+            min-height: 70px; /* Further reduced min-height */
             padding: 15px;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
@@ -316,7 +316,7 @@
                 max-width: unset; /* Remove max-width constraint */
             }
             textarea {
-                min-height: 60px; /* Further reduced min-height for textarea */
+                min-height: 40px; /* Further reduced min-height for textarea */
                 padding: 12px;
                 font-size: 0.95rem;
             }
