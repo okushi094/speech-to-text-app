@@ -26,9 +26,9 @@
             border-radius: 36px; /* Rounded corners for phone-like shape */
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
             width: 100%;
-            max-width: 400px; /* Typical phone width */
+            max-width: 500px; /* Increased max-width for desktop view */
             min-height: 100vh; /* Ensure it takes at least full viewport height on small screens */
-            max-height: 800px; /* Max height for larger screens (desktop preview) */
+            max-height: 900px; /* Increased max-height for desktop preview */
             display: flex;
             flex-direction: column;
             overflow-y: auto; /* Allow scrolling for the entire app container */
@@ -159,7 +159,7 @@
         /* Textarea */
         textarea {
             width: 100%;
-            min-height: 70px; /* Further reduced min-height */
+            min-height: 120px; /* Adjusted min-height to provide more space */
             padding: 15px;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
@@ -316,7 +316,7 @@
                 max-width: unset; /* Remove max-width constraint */
             }
             textarea {
-                min-height: 40px; /* Further reduced min-height for textarea */
+                min-height: 80px; /* Adjusted min-height for mobile */
                 padding: 12px;
                 font-size: 0.95rem;
             }
