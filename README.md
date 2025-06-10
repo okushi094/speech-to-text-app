@@ -1,5 +1,3 @@
-# speech-to-text-app
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
