@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -160,7 +159,7 @@
         /* Textarea */
         textarea {
             width: 100%;
-            min-height: 150px; /* Base min-height */
+            min-height: 100px; /* Reduced min-height */
             padding: 15px;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
@@ -317,7 +316,7 @@
                 max-width: unset; /* Remove max-width constraint */
             }
             textarea {
-                min-height: 80px; /* Smaller min-height for textarea */
+                min-height: 60px; /* Further reduced min-height for textarea */
                 padding: 12px;
                 font-size: 0.95rem;
             }
