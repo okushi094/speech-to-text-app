@@ -297,20 +297,6 @@
                 padding: 20px; /* Reduce padding */
                 gap: 15px; /* Reduce gap between elements */
             }
-            .profile-section {
-                margin-bottom: 5px; /* Reduce margin */
-            }
-            .profile-icon {
-                width: 28px; /* Smaller icon */
-                height: 28px;
-            }
-            .profile-icon svg {
-                width: 18px;
-                height: 18px;
-            }
-            .voice-recognition-text {
-                font-size: 1.1rem; /* Smaller text */
-            }
             .sound-wave-visualizer {
                 width: 120px; /* Smaller visualizer */
                 height: 120px;
@@ -328,7 +314,7 @@
                 max-width: unset; /* Remove max-width constraint */
             }
             textarea {
-                min-height: 100px; /* Smaller min-height for textarea */
+                min-height: 80px; /* Smaller min-height for textarea */
                 padding: 12px;
                 font-size: 0.95rem;
             }
@@ -343,7 +329,7 @@
             }
             .action-btn svg {
                 width: 18px;
-                height: 18px;
+                height: 10px;
             }
             .bottom-nav {
                 padding: 8px 0; /* Smaller padding */
@@ -355,7 +341,7 @@
             }
             .nav-item svg {
                 width: 20px;
-                height: 20px;
+                height: 10px;
             }
             .status-message {
                 font-size: 0.8rem;
