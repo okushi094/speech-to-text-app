@@ -41,7 +41,6 @@
             justify-content: center; /* Center the title */
             border-bottom: 1px solid #f0f4f8;
             position: relative;
-            flex-shrink: 0; /* Prevent header from shrinking */
         }
         .header .title {
             font-size: 1.1rem;
@@ -67,7 +66,6 @@
             width: 100%;
             justify-content: flex-start;
             margin-bottom: 10px;
-            flex-shrink: 0; /* Prevent from shrinking */
         }
         .profile-icon {
             width: 32px;
@@ -78,7 +76,6 @@
             align-items: center;
             justify-content: center;
             color: #4a5568;
-            flex-shrink: 0;
         }
         .profile-icon svg {
             width: 20px;
@@ -90,7 +87,6 @@
             color: #1a202c;
             text-align: left;
             width: 100%;
-            flex-shrink: 0;
         }
 
         /* Sound Wave Visualizer */
@@ -106,7 +102,6 @@
             margin-bottom: 30px;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
             position: relative;
-            flex-shrink: 0; /* Prevent from shrinking */
         }
         .sound-wave-visualizer svg {
             color: #a0aec0; /* Grey color for inactive wave */
@@ -139,7 +134,6 @@
             max-width: 250px;
             margin-bottom: 20px;
             display: none; /* Hidden by default */
-            flex-shrink: 0; /* Prevent from shrinking */
         }
         .stop-button-large:hover {
             background-color: #dc2626;
@@ -157,7 +151,7 @@
         /* Textarea */
         textarea {
             width: 100%;
-            min-height: 150px; /* Base min-height */
+            min-height: 150px;
             padding: 15px;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
@@ -167,7 +161,6 @@
             resize: vertical;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
             transition: border-color 0.3s ease;
-            flex-grow: 1; /* Allow textarea to grow and shrink */
         }
         textarea:focus {
             outline: none;
@@ -182,7 +175,6 @@
             width: 100%;
             margin-top: 20px;
             gap: 15px;
-            flex-shrink: 0; /* Prevent from shrinking */
         }
         .action-btn {
             background-color: #ffffff;
@@ -231,7 +223,6 @@
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
             border-bottom-left-radius: 36px; /* Match container border radius */
             border-bottom-right-radius: 36px;
-            flex-shrink: 0; /* Prevent bottom nav from shrinking */
         }
         .nav-item {
             display: flex;
@@ -265,7 +256,6 @@
             font-weight: 500;
             width: 100%;
             text-align: center;
-            flex-shrink: 0; /* Prevent from shrinking */
         }
         .status-message.info {
             background-color: #e0f2fe;
@@ -280,84 +270,50 @@
             color: #16a34a;
         }
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 480px) { /* Adjust breakpoint for typical phone widths */
+        /* Responsive adjustments for very small screens */
+        @media (max-width: 360px) {
             .app-container {
-                border-radius: 0; /* No border radius on small screens to fit edge-to-edge */
-                height: 100vh; /* Ensure full height on small screens */
-                max-height: unset; /* Remove max-height constraint for smaller screens */
+                border-radius: 0; /* No border radius on very small screens to fit */
+                height: 100vh;
             }
             .header {
-                padding: 15px 20px 10px; /* Reduce padding */
-            }
-            .header .title {
-                font-size: 1rem; /* Smaller title font */
+                padding: 15px 20px 10px;
             }
             .main-content {
-                padding: 20px; /* Reduce padding */
-                gap: 15px; /* Reduce gap between elements */
-            }
-            .sound-wave-visualizer {
-                width: 120px; /* Smaller visualizer */
-                height: 120px;
-                margin-top: 15px;
-                margin-bottom: 20px;
-            }
-            .sound-wave-visualizer svg {
-                width: 70px; /* Smaller wave icon */
-                height: 70px;
+                padding: 20px;
             }
             .stop-button-large {
                 padding: 15px 30px;
                 font-size: 1.1rem;
-                width: 90%; /* Wider on small screens */
-                max-width: unset; /* Remove max-width constraint */
-            }
-            textarea {
-                min-height: 80px; /* Smaller min-height for textarea */
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-            .action-buttons {
-                margin-top: 15px;
-                gap: 10px;
             }
             .action-btn {
                 padding: 10px 15px;
                 font-size: 0.9rem;
-                border-radius: 10px;
             }
             .action-btn svg {
                 width: 18px;
-                height: 10px;
-            }
-            .bottom-nav {
-                padding: 8px 0; /* Smaller padding */
-                border-bottom-left-radius: 0; /* No border radius on very small screens */
-                border-bottom-right-radius: 0;
+                height: 18px;
             }
             .nav-item {
                 font-size: 0.7rem;
             }
             .nav-item svg {
                 width: 20px;
-                height: 10px;
+                height: 20px;
             }
-            .status-message {
-                font-size: 0.8rem;
-                padding: 8px 12px;
+            textarea {
+                min-height: 120px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
         <div class="header">
             <span class="title">音声文字起こしアプリ</span>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div class="profile-section">
                 <div class="profile-icon">
@@ -372,7 +328,6 @@
                 </svg>
             </div>
 
-            <!-- Large Stop Button - Visible only when recording -->
             <button id="stopButtonLarge" class="stop-button-large">Stop</button>
 
             <textarea id="transcript" placeholder="ここに文字起こしされたテキストが表示されます..." class="shadow-inner"></textarea>
